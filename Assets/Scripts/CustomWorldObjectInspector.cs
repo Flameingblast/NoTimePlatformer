@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if(UNITY_EDITOR)
 [CustomEditor(typeof(WorldObject))]
 public class CustomWorldObjectInspector : Editor
 {
@@ -15,3 +16,4 @@ public class CustomWorldObjectInspector : Editor
         }
     }
 }
+#endif

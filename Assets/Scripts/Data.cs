@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class Data
 {
+    public enum GameState { menu = 0, level = 1, win = 2, lose = 3 };
     public static bool rewinding;
     public static bool paused;
     public static bool gameOver;

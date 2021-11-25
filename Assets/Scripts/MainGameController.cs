@@ -116,6 +116,10 @@ public class MainGameController : MonoBehaviour
                 }
             }
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private void Rewind()

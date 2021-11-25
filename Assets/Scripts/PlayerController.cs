@@ -8,6 +8,7 @@ public class PlayerController : WorldObject
     private bool inAir;
     private Rigidbody2D body;
     private bool isJump;
+    private bool pressedJump;
 
     public float airMultiplier;
     public float acceleration;
@@ -48,11 +49,16 @@ public class PlayerController : WorldObject
                 }
                 body.AddForce(new Vector2(-1 * acceleration * multiplier * Time.fixedDeltaTime, 0), ForceMode2D.Impulse);
             }
-            if (Input.GetAxis("Vertical") > 0.05f && !inAir)
+            if (Input.GetAxis("Vertical") > 0.05f && !pressedJump && !inAir)
             {
                 body.AddForce(new Vector2(0, jump), ForceMode2D.Impulse);
                 inAir = true;
                 isJump = true;
+                pressedJump = true;
+            }
+            if(!inAir && Input.GetAxis("Vertical") < 0.05f)
+            {
+                pressedJump = false;
             }
         }
         if(transform.position.y < -3.84f)
